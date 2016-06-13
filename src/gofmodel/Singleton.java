@@ -47,6 +47,7 @@ class SingletonObjectEh{
 		System.out.println(str);
 		System.out.println(str);
 		System.out.println("1");
+		System.out.println("2");
 	}
 	
 	public static SingletonObjectEh getSingletonObjectEh(){
