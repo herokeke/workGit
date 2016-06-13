@@ -18,7 +18,7 @@ public class Singleton {
 }
 
 /**
- * ¿¡∫∫ Ωº”‘ÿ
+ * ∂ˆ∫∫ Ωº”‘ÿ
  * @author Administrator
  *
  */
@@ -37,13 +37,14 @@ class SingletonObjectLh{
 }
 
 /**
- * ∂ˆ∫∫º”‘ÿ
+ * ¿¡∫∫º”‘ÿ
  * @author Administrator
  *
  */
 class SingletonObjectEh{
 	private static SingletonObjectEh singletonObjectEh;
 	private SingletonObjectEh(String str){
+		System.out.println(str);
 		System.out.println(str);
 	}
 	
