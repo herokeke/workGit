@@ -1,4 +1,5 @@
-package test;
+package common.classUtil.innerClass;
+
 
 public class NeiBuClass {
 	 public void test(final int b) {

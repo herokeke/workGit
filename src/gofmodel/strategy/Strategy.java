@@ -1,4 +1,4 @@
-package gofmodel;
+package gofmodel.strategy;
 
 /**
  * ²ßÂÔÄ£Ê½

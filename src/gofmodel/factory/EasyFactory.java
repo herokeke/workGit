@@ -1,4 +1,4 @@
-package gofmodel;
+package gofmodel.factory;
 
 /**
  * 建单工厂

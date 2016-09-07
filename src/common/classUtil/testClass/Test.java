@@ -1,4 +1,4 @@
-package test;
+package common.classUtil.testClass;
 
 import java.lang.reflect.Field;
 
@@ -32,8 +32,13 @@ public class Test {
     public static void main(String[] args) {
       String a = new String("aa");
       String b = new String("aa");
+      String c="aa";
+      String d="aa";
       System.out.println(a==b);
       System.out.println(a.equals(b));
+      System.out.println(c==d);
+      System.out.println(c.equals(a));
+      
     } 
 	
 

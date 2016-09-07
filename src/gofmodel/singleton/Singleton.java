@@ -1,4 +1,4 @@
-package gofmodel;
+package gofmodel.singleton;
 
 /**
  * µ¥ÀýÄ£Ê½ 

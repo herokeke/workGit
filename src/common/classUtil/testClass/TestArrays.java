@@ -1,4 +1,4 @@
-package test;
+package common.classUtil.testClass;
 
 import java.lang.reflect.Field;
 

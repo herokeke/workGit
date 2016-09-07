@@ -1,4 +1,4 @@
-package gofmodel;
+package gofmodel.factory;
 
 /**
  * ³éÏó¹¤³§

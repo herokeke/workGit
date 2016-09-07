@@ -1,4 +1,6 @@
-package test;
+package common.classUtil.innerClass;
+
+
 
 public class BeanClass {
 	 public static void main(String[] args){

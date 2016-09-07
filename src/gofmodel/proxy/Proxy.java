@@ -1,4 +1,4 @@
-package gofmodel;
+package gofmodel.proxy;
 
 /**
  * 代理模式

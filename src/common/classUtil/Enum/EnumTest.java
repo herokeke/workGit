@@ -1,4 +1,4 @@
-package test;
+package common.classUtil.Enum;
 
 
 public final class EnumTest {
@@ -20,7 +20,7 @@ class Season{
 		this.name=name;
 		this.deac=deac;
 	}
-	private Season(){ //final修饰的变量调用之前需要进行初始化�?
+	private Season(){ //final修饰的变量调用之前需要进行初始化�??
 		this.name="";
 		this.deac="";
 	}
@@ -40,10 +40,10 @@ enum SeasonEnum{
 class TestEnum{
 	public static void fun(SeasonEnum e){
 		switch(e){
-		case  SPRING:System.out.println("春");break;
-		case  SUMMER:System.out.println("夏");break;
-		case  FALL:System.out.println("秋");break;
-		case  MINTER:System.out.println("冬");break;
+		case  SPRING:System.out.println("�?");break;
+		case  SUMMER:System.out.println("�?");break;
+		case  FALL:System.out.println("�?");break;
+		case  MINTER:System.out.println("�?");break;
 		
 		
 		}

@@ -1,4 +1,4 @@
-package test;
+package common.classUtil.innerClass;
 
 public class NeiBuInterface {
  public static void main(String[] args){
