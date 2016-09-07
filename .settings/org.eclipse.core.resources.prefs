@@ -1,3 +1,11 @@
-#Wed Sep 07 10:28:51 CST 2016
+#Thu Sep 08 00:07:48 CST 2016
 eclipse.preferences.version=1
+encoding//src/common/classUtil=UTF-8
 encoding//src/common/classUtil/Enum/EnumTest.java=UTF-8
+encoding//src/common/classUtil/innerClass=gbk
+encoding//src/common/classUtil/reflectionClass/TestReflection.java=gbk
+encoding//src/common/classUtil/thread/timeOut=UTF-8
+encoding//src/common/classUtil/thread/timeOut/TimeOutCall.java=UTF-8
+encoding//src/common/classUtil/webService=gbk
+encoding//src/common/classUtil/webService/IHelloWorlds.java=UTF-8
+encoding/<project>=UTF-8

@@ -1,7 +1,7 @@
 package gofmodel.factory;
 
 /**
- * 建单工厂
+ * 简单工厂
  * @author Administrator
  *
  */
