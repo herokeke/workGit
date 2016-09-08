@@ -1,4 +1,4 @@
-package gofmodel.proxy;
+﻿package gofmodel.proxy;
 
 public class UserManagerImpl implements UserManagerService {
 

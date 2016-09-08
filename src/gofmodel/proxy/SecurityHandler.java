@@ -1,8 +1,8 @@
-package gofmodel.proxy;
+ï»¿package gofmodel.proxy;
 
 import java.lang.reflect.*;
 
-//¶¯Ì¬´úÀí
+//åŠ¨æ€ä»£ç†
 public class SecurityHandler implements InvocationHandler {
 
 	private Object targetObject;

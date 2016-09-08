@@ -1,7 +1,7 @@
-package gofmodel.strategy;
+ï»¿package gofmodel.strategy;
 
 /**
- * ²ßÂÔÄ£Ê½
+ * ç­–ç•¥æ¨¡å¼
  * @author Administrator
  *
  */

@@ -1,7 +1,7 @@
-package gofmodel.factory;
+锘縫ackage gofmodel.factory;
 
 /**
- * 工厂方法
+ * 宸ュ巶鏂规硶
  * @author Administrator
  *
  */

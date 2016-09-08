@@ -1,7 +1,7 @@
-package gofmodel.factory;
+ï»¿package gofmodel.factory;
 
 /**
- * ³éÏó¹¤³§
+ * æŠ½è±¡å·¥å‚
  * @author Administrator
  *
  */

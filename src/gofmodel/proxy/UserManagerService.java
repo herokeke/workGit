@@ -1,12 +1,12 @@
-package gofmodel.proxy;
+锘縫ackage gofmodel.proxy;
 
-//抽象接口规范实现
+//鎶借薄鎺ュ彛瑙勮寖瀹炵幇
 public interface UserManagerService {
 	     
-	     //添加用户
+	     //娣诲姞鐢ㄦ埛
          public String addUser(String pid,String name);
          
-         //删除用户
+         //鍒犻櫎鐢ㄦ埛
          public String delUser();
          
 }

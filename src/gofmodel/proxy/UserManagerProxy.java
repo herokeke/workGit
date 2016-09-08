@@ -1,12 +1,12 @@
-package gofmodel.proxy;
+ï»¿package gofmodel.proxy;
 
-//¾²Ì¬´úÀí
+//é™æ€ä»£ç†
 public class UserManagerProxy implements UserManagerService {
     
-	//´úÀí¶ÔÏó°üº¬ÕæÊµ¶ÔÏóµÄÒıÓÃ¡£
+	//ä»£ç†å¯¹è±¡åŒ…å«çœŸå®å¯¹è±¡çš„å¼•ç”¨ã€‚
 	private UserManagerImpl userManagerImpl;
 	
-	//Í¨¹ı¹¹Ôì½øĞĞsetter.
+	//é€šè¿‡æ„é€ è¿›è¡Œsetter.
 	public UserManagerProxy(UserManagerImpl userManagerImpl){
 		this.userManagerImpl = userManagerImpl;
 	}
@@ -22,7 +22,7 @@ public class UserManagerProxy implements UserManagerService {
 		return null;
 	}
 	
-	//Ìí¼Ó´úÀíÏëÒªÖ´ĞĞµÄÂß¼­¡£Èç£¬ÑéÖ¤ÓÃ»§ĞÅÏ¢¡£
+	//æ·»åŠ ä»£ç†æƒ³è¦æ‰§è¡Œçš„é€»è¾‘ã€‚å¦‚ï¼ŒéªŒè¯ç”¨æˆ·ä¿¡æ¯ã€‚
 	public void checkSession(){
 		System.out.println("chek");
 	}
