@@ -5,14 +5,24 @@ import java.lang.reflect.Field;
 public class TestArrays {
 	
     public static void main(String[] args) {
-    	SubAbs sa = new SubAbs();
     } 
 	
 
 }
-abstract class TestAbs{
-	public  String a="ss";
+class Parent1{
+	 public Parent1(){
+			
+		}
+    public Parent1(String a){
+		
+	}
+	public Parent1(String a,String b){
+		this("a");
+	}
 }
-class SubAbs extends TestAbs{
+class  Parent2 extends Parent1{
 	
+}
+class Parent3 extends Parent2{
+
 }
