@@ -9,8 +9,7 @@ public class BasicClassTest {
 
 	@Test
 	public void testFun() {
-		System.out.println("aa");
-		assertEquals(1,1);
+		assertEquals(2,new BasicClass().divide(6,3)); //断言 通过api 查看更多的断言。
 	}
 
 }
