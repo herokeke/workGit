@@ -1,0 +1,38 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+	<!--Examda提示:数据库用户名-->
+	<property name="connection.username">CDB_ITSM</property>
+	<!--数据库URL-->
+	<property name="connection.url">
+		jdbc:oracle:thin:@192.168.232.128:1521:orcl
+	</property>
+	<!--dialect,每个数据库对应的Dialet匹配其平台特性-->
+	<property name="dialect">
+		org.hibernate.dialect.Oracle10gDialect
+	</property>
+	<!--数据库密码-->
+	<property name="connection.password">CDB_ITSM</property>
+	<!--数据库驱动-->
+	<property name="connection.driver_class">
+		oracle.jdbc.driver.OracleDriver
+	</property>
+	<!--是否将运行产生的sql语句输出到日志-->
+	<property name="hibernate.show_sql">True</property>
+	<!--Examda,是否使用数据库外连接-->
+	
+	
+	 
+    <property name="current_session_context_class">thread</property>
+    
+    
+	<!--事务管理类
+		<property name="hibernate.use_out_join">True</property>
+		<property name="hibernate.transaction.factory_class">net.sf.hibernate.transaction.JDBCTransactionFactory</property>
+	-->
+	<mapping resource="common/hibernate/model/UserInfo.hbm.xml" />
+</session-factory>
+</hibernate-configuration>

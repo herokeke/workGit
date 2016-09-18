@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+   <class  name="common.hibernate.model.UserInfo" table="BS_T_SM_USER">
+        <id name="pid" type="string">
+             <column name="PID"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="loginname" type="java.lang.String"><column name="loginname"></column></property>
+        <property name="fullname" type="java.lang.String"><column name="fullname"></column></property>
+        <property name="pwd" type="java.lang.String"><column name="pwd"></column></property>
+        <property name="sex" type="java.lang.String"><column name="sex"></column></property>
+        <property name="mobile" type="java.lang.String"><column name="mobile"></column></property>
+        <property name="phone" type="java.lang.String"><column name="phone"></column></property>
+    </class>
+</hibernate-mapping>
