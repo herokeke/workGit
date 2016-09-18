@@ -36,7 +36,7 @@ public class HibernateTest {
 		this.sessionFactory.close();
 	}
 	
-	/*  Session
+	/*  Session ?
 	 * 采用getCurrentSession()创建的Session会绑定到当前的线程中去、而采用OpenSession()则不会。
         采用getCurrentSession()创建的Session在commit或rollback后会自动关闭，采用OpenSession()必须手动关闭。
         采用getCurrentSession()需要在Hibernate.cfg.xml配置文件中加入如下配置：
@@ -53,7 +53,7 @@ public class HibernateTest {
 		
 	}
 	
-	/* get load doWork flush 
+	/* get load doWork flush save update delete 
 	 * 
 	 *  
 	 *  
