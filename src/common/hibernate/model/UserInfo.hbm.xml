@@ -3,6 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
    <class  name="common.hibernate.model.UserInfo" table="BS_T_SM_USER">
+    <cache usage="read-only" include="all" region="UserInfo"/>
         <id name="pid" type="string">
              <column name="PID"/>
             <generator class="assigned"/>

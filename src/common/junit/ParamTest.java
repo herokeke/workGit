@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+// 参数化测试
 @RunWith(Parameterized.class)
 public class ParamTest {
 	

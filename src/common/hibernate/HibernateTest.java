@@ -36,6 +36,7 @@ public class HibernateTest {
 		this.sessionFactory.close();
 	}
 	
+	
 	/*  Session ?
 	 * 采用getCurrentSession()创建的Session会绑定到当前的线程中去、而采用OpenSession()则不会。
         采用getCurrentSession()创建的Session在commit或rollback后会自动关闭，采用OpenSession()必须手动关闭。
@@ -56,24 +57,33 @@ public class HibernateTest {
 	/* get load doWork flush save update delete 
 	 * 
 	 *  
-	 *  
 	 */
 	
 	
-	/*缓存
-	 * 
+	/*一级缓存  session 级缓存
+	 * 二级缓存 全局缓存 采用第三方实现
+	 * 当Hibernate根据ID访问数据对象的时候，首先从Session一级缓存中查；查不到，如果配置了二级缓存，那么从二级缓存中查；查不到，再查询数据库，把结果按照ID放入到缓存。
 	 */
 	@Test
 	public void testHibernate01(){
 		
 		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
 		System.out.println(s1.getFullname());
-		
+		// session.clear(); // 清楚session所有对象
+		//session.evict(s1); //将某个对象从session的一级缓存中清除
 		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
 		System.out.println(s2.getFullname());
-		
 	}
+	/**
+	 * ehcache使用
+	 * @throws Exception
+	 */
 	
+	
+	
+	/**
+	 * 继承
+	 */
 	
 	
 	@BeforeClass
