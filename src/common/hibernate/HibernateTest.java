@@ -1,8 +1,16 @@
 package common.hibernate;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -11,11 +19,10 @@ import org.hibernate.jdbc.Work;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import common.hibernate.model.Address;
 import common.hibernate.model.UserInfo;
 
 public class HibernateTest {
@@ -50,13 +57,16 @@ public class HibernateTest {
 	@Test
 	public void testHibernate00(){
 		Session	session1 =   sessionFactory.openSession();
-		Transaction transaction1   = session1.beginTransaction();
-		UserInfo user = new UserInfo("1","001","大娃","111","男","123","321");
+		UserInfo user = new UserInfo();
+		session1.doWork(new Work(){
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				connection.setAutoCommit(true); // 设置提交不开启事务 否则会报错必须要提前开启事务。
+			}
+		});
 		session1.save(user);
-		transaction1.commit();
 		session1.flush();
 		session1.close();
-	//session1.flush();
 		
 		Session	session2 =   sessionFactory.openSession();
 	    System.out.println("openSession==>"+(session1==session2));
@@ -87,10 +97,40 @@ public class HibernateTest {
 		
 	}
 	
-	/* get load doWork flush save update delete 
-	 * 
-	 *  
+	/**
+	 * 在不考虑缓存的情况下，get方法会在调用之后立即向数据库发出sql语句，返回持久化对象 
+	 * 对象不存在 返回 null
 	 */
+	public void testUserInfoGet(){
+		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"ID");
+		
+	}
+	/**
+	 * 调用之后返回一个代理对象。
+	 * 该代理对象只保存了实体对象的ID，直到使用对象的非主键属性时才会发出SQ语句。
+	 * 对象不存在 抛出 ObjectNotFoundException 异常。
+	 */
+	public void testUserInfoLoad(){
+		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"ID");
+		// System.out.println(s2); //注释该方法 不会发送语句 。否则会发送语句 在控制台可看到效果
+	}
+	
+	/**
+	 * 
+	 */
+	public void testUserInfoUpdate(){
+		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"ID");
+		s2.setSex("女");
+		session.update(s2);
+		
+	}
+	/**
+	 * 
+	 */
+	public void testUserInfoDelete(){
+		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"ID");
+		session.delete(s2);
+	}
 	
 	
 	/*一级缓存  session 级缓存
@@ -107,22 +147,68 @@ public class HibernateTest {
 		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
 		//System.out.println(s2.getFullname());
 	}
-	/**
-	 * ehcache使用
-	 * @throws Exception
-	 */
-	
-	
 	
 	/**
 	 * 继承
+	 * @throws IOException 
 	 */
 	
+	/**
+	 * 懒加载
+	 * @throws IOException 
+	 */
 	
-	@BeforeClass
-	public static void before() throws Exception {
+	/*
+	 * 数据类型 java.util.Date/java.sql.Date 年月日时分秒 
+	 *         Date 年月日
+	 *         time  时分秒
+	 *         Timestamp  年月日时分秒
+	 *         
+	 *    映射类型      Java类型           标准SQL类型    MYSQL类型   Oracle类型
+	 *    binary       byte[]         varchar/blob   blob       blob
+	 *    text     java.lang.String      clob        text       clob
+	 *    clob     java.sql.Clob         CLOB        TEXT       CLOB
+	 *    blob     java.sql.Blob         blob        blob       blob
+	 *    
+	 *    binary  字节数组
+	 *    text clob  大文本数据类型
+	 *    blob    二进制数据类型  (音频/视频/图片)
+	 *    
+	 *    mysql 不支持SQL的clob类型，在Mysql中，用txt,mediumtext, longtext 类型标示长度超过255的文本长度。
+	 *    
+	 */
+	@Test
+	public void testWriteLob() throws IOException{
+		UserInfo user = new UserInfo("","","","","","","");
+		File f = new File("d:"+File.separator+"test.jpg");
+		InputStream input = new FileInputStream(f);
+		Blob blob =  Hibernate.getLobCreator(session).createBlob(input,input.available());
+		user.setPictrue(blob);
+		session.save(user);
 	}
-	@AfterClass
-	public static void after() throws Exception {
+	@Test
+	public void testReadLob() throws SQLException, IOException{
+		UserInfo user = (UserInfo) session.get(UserInfo.class, "1");
+		Blob blob = user.getPictrue();
+		InputStream input = blob.getBinaryStream();
+		File f = new File("d:"+File.separator+"test1.jpg");
+		OutputStream output = new FileOutputStream(f);
+		byte[] buff = new byte[input.available()];
+		input.read(buff);
+		output.write(buff);
+		input.close();
+		output.close();
 	}
+	
+	/*
+	 * 测试组建属性
+	 */
+	@Test
+	public void testAdressPro(){
+		UserInfo user = new UserInfo("","","","","","","");
+		Address address = new Address();
+		user.setAddress(address);
+		session.save(user);
+	}
+	
 }

@@ -22,7 +22,9 @@
 	</property>
 	<!--是否将运行产生的sql语句输出到日志-->
 	<property name="hibernate.show_sql">true</property>
+	<!--是否将运行产生的sql语句进行格式化-->
 	<property name="hibernate.format_sql">true</property>
+	<!--create删除原表重新建表 update 修改表数据。-->
 	<property name="hbm2ddl.auto">create</property>
 	<!--Examda,是否使用数据库外连接-->
 
@@ -31,16 +33,14 @@
     <property name="current_session_context_class">thread</property>
     
     
-    <!-- 采用二级缓存策略 -->
+    <!-- 采用Ehcach组建二级缓存策略 -->
     
       <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> 
+     
       <!-- 
        <property name="hibernate.cache.use_second_level_cache">true</property> 
-	<property name="hibernate.cache.provider_configuration_file_resource_path">common/hibernate/ehcache.xml</property>
+	   <property name="hibernate.cache.provider_configuration_file_resource_path">common/hibernate/ehcache.xml</property>
      -->
-    
-	
-    
 	
 	<!--事务管理类
 		<property name="hibernate.use_out_join">True</property>

@@ -1,5 +1,8 @@
 package common.hibernate.model;
 
+import java.sql.Blob;
+import java.util.Date;
+
 
 /**
  * UserInfo entity. @author MyEclipse Persistence Tools
@@ -13,6 +16,9 @@ public class UserInfo {
 	private String sex;
 	private String mobile;
 	private String phone;
+	private Date birthday;
+	private Blob pictrue; 
+	private Address address;
 	
 	public String getPid() {
 		return pid;
@@ -71,6 +77,25 @@ public class UserInfo {
 	public UserInfo(){
 		
 	}
+	public Date getBirthday() {
+		return birthday;
+	}
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+	public Blob getPictrue() {
+		return pictrue;
+	}
+	public void setPictrue(Blob pictrue) {
+		this.pictrue = pictrue;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
 
 
 }
