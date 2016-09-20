@@ -21,9 +21,11 @@
 		oracle.jdbc.driver.OracleDriver
 	</property>
 	<!--是否将运行产生的sql语句输出到日志-->
-	<property name="hibernate.show_sql">True</property>
+	<property name="hibernate.show_sql">true</property>
+	<property name="hibernate.format_sql">true</property>
+	<property name="hbm2ddl.auto">create</property>
 	<!--Examda,是否使用数据库外连接-->
-	
+
 	
 	 <!-- 采用getCurrentSession()创建的Session会绑定到当前的线程中去-->
     <property name="current_session_context_class">thread</property>

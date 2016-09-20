@@ -1,9 +1,13 @@
 package common.hibernate;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.jdbc.Work;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
@@ -46,10 +50,39 @@ public class HibernateTest {
 	@Test
 	public void testHibernate00(){
 		Session	session1 =   sessionFactory.openSession();
+		Transaction transaction1   = session1.beginTransaction();
+		UserInfo user = new UserInfo("1","001","大娃","111","男","123","321");
+		session1.save(user);
+		transaction1.commit();
+		session1.flush();
+		session1.close();
+	//session1.flush();
+		
 		Session	session2 =   sessionFactory.openSession();
 	    System.out.println("openSession==>"+(session1==session2));
+	    
+	    
 		Session	session3 = 	sessionFactory.getCurrentSession();
+		session3.beginTransaction();
+		session3.doWork(new Work(){
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				// TODO Auto-generated method stub
+				System.out.println("session3=="+connection.hashCode());
+			}
+		});
+		
 		Session session4 = 	sessionFactory.getCurrentSession();
+		
+		//session4.beginTransaction(); //只能打开一次事物，不能重复打开，否则会抛出异常
+		
+		session4.doWork(new Work(){
+			@Override
+			public void execute(Connection connection) throws SQLException {
+				// TODO Auto-generated method stub
+				System.out.println("session4=="+connection.hashCode());
+			}
+		});
 		System.out.println("sessionFactory==>"+(session3==session4));
 		
 	}
@@ -68,11 +101,11 @@ public class HibernateTest {
 	public void testHibernate01(){
 		
 		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
-		System.out.println(s1.getFullname());
+	//	System.out.println(s1.getFullname());
 		// session.clear(); // 清楚session所有对象
 		//session.evict(s1); //将某个对象从session的一级缓存中清除
 		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
-		System.out.println(s2.getFullname());
+		//System.out.println(s2.getFullname());
 	}
 	/**
 	 * ehcache使用
