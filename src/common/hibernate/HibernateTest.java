@@ -26,7 +26,7 @@ public class HibernateTest {
 		ServiceRegistry   serviceRegistry = new ServiceRegistryBuilder().applySettings(cofig.getProperties()).buildServiceRegistry(); //创建服务注册对象
 		sessionFactory  = cofig.buildSessionFactory(serviceRegistry); //创建会话工厂对象
 		session = sessionFactory.openSession(); //打开会话
-		transaction = session.beginTransaction(); // 打开事物
+		transaction = session.beginTransaction(); // 打开事物  session 封装在整个事物当中，在关闭seesion前要先提交事物，否则不生效。
 	}
 
 	@After
