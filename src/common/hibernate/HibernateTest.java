@@ -175,6 +175,9 @@ public class HibernateTest {
 		//session.evict(s1); //将某个对象从session的一级缓存中清除
 		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"1");
 		System.out.println(s2.getFullname());
+		
+		// 查询，并把结果保存在二级缓存
+		session.createQuery("").setCacheable(true);
 	}
 	
 	/**
