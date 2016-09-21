@@ -2,9 +2,9 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-   <class  name="common.hibernate.model.UserInfo" table="BS_T_GIT_USER">
-    <cache usage="read-only" include="all" region="UserInfo"/>
-        <id name="pid" type="string">
+   <class  name="common.hibernate.model.UserInfo" table="BS_T_GIT_USER" >
+    <cache usage="nonstrict-read-write" include="all" region="UserInfo"/>
+        <id name="pid" type="java.lang.String">
              <column name="PID"/>
             <generator class="assigned"/>
         </id>
@@ -13,11 +13,11 @@
         <property name="pwd" type="java.lang.String"><column name="pwd"></column></property>
         <property name="sex" type="java.lang.String"><column name="sex"></column></property>
         <property name="mobile" type="java.lang.String"><column name="mobile"></column></property>
-        <property name="birthday" type="java.lang.Date"><column name="birthday"></column></property>
-        <property name="pictrue" type="java.sql.Blob"><column name="pictrue"></column></property>
+        <property name="birthday" type="java.util.Date"><column name="birthday"></column></property>
+       <!-- <property name="pictrue" type="java.sql.Blob" ><column name="pictrue"></column></property>   -->
         <!-- 实体类中某个熟悉属于用户自定义类的对象 -->
-        <component  name="address" class="Address">
-           <property name="address" column="address"></property>
+        <component  name="Address" class="common.hibernate.model.Address" >
+            <property name="address" column="address"></property>
             <property name="phone" column="phone"></property>
         </component>
         

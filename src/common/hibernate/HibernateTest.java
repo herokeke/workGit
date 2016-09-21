@@ -9,6 +9,11 @@ import java.io.OutputStream;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
+
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -55,9 +60,9 @@ public class HibernateTest {
        <property name="current_session_context_class">thread</property>
 	 */
 	@Test
-	public void testHibernate00(){
-		Session	session1 =   sessionFactory.openSession();
-		UserInfo user = new UserInfo();
+	public void testHibernateSession(){
+		Session	session1 =  sessionFactory.openSession();
+		UserInfo user = new UserInfo("1","1","1","1","1","1","1");
 		session1.doWork(new Work(){
 			@Override
 			public void execute(Connection connection) throws SQLException {
@@ -71,6 +76,7 @@ public class HibernateTest {
 		 */
 		session1.flush();
 		session1.close();
+		
 		
 		Session	session2 =   sessionFactory.openSession();
 	    System.out.println("openSession==>"+(session1==session2));
@@ -105,8 +111,9 @@ public class HibernateTest {
 	 * 在不考虑缓存的情况下，get方法会在调用之后立即向数据库发出sql语句，返回持久化对象 
 	 * 对象不存在 返回 null
 	 */
+	@Test
 	public void testUserInfoGet(){
-		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"ID");
+		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"1");
 		
 	}
 	/**
@@ -114,52 +121,73 @@ public class HibernateTest {
 	 * 该代理对象只保存了实体对象的ID，直到使用对象的非主键属性时才会发出SQ语句。
 	 * 对象不存在 抛出 ObjectNotFoundException 异常。
 	 */
+	@Test
 	public void testUserInfoLoad(){
-		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"ID");
-		// System.out.println(s2); //注释该方法 不会发送语句 。否则会发送语句 在控制台可看到效果
+		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"1");
+	//	 System.out.println(s2); //注释该方法 不会发送语句 。否则会发送语句 在控制台可看到效果
 	}
 	
 	/**
-	 * 
+	 *  更新数据 涉及到二级缓存的配置  
+	 *   read-write  可以进行修改
+	 *   "read-only" 会抛出 java.lang.UnsupportedOperationException: Can't write to a readonly object
+	 *   read- only：无需修改， 那么就可以对其进行只读 缓存，注意，在此策略下，如果直接修改数据库，即使能够看到前台显示效果，但是将对象修改至cache中会报error，cache不会发生作用。
+	 *               另：删 除记录会报错，因为不能在read-only模式的对象从cache中删除。
 	 */
+	@Test
 	public void testUserInfoUpdate(){
-		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"ID");
-		s2.setSex("女");
-		session.update(s2);
+		//session.clear();
+		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"1");
+		System.out.println(s2);
+		if(s2!=null){
+			s2.setSex("男");
+			session.update(s2);
+		}
 		
 	}
 	/**
-	 * 
+	 *  删除数据 跟read-only无关
 	 */
+	@Test
 	public void testUserInfoDelete(){
-		UserInfo s2 =(UserInfo) session.load(UserInfo.class,"ID");
-		session.delete(s2);
+		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"1");
+		if(s2!=null){
+		  session.delete(s2);
+		}
 	}
 	
 	
 	/*一级缓存  session 级缓存
 	 * 二级缓存 全局缓存 采用第三方实现
 	 * 当Hibernate根据ID访问数据对象的时候，首先从Session一级缓存中查；查不到，如果配置了二级缓存，那么从二级缓存中查；查不到，再查询数据库，把结果按照ID放入到缓存。
+	 * 
+	 * read-write 二级缓存 失败 ？
+	 * read-only 二级缓存  成功 ？
+	 * 
+	 * nonstrict-read-write 可以二级缓存 也可以update 
 	 */
 	@Test
-	public void testHibernate01(){
+	public void testHibernateCache(){
 		
-		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
-	//	System.out.println(s1.getFullname());
-		// session.clear(); // 清楚session所有对象
+		UserInfo s1 =(UserInfo) session.get(UserInfo.class,"1");
+		System.out.println(s1.getFullname());
+		//session.clear(); // 清楚session所有对象  
 		//session.evict(s1); //将某个对象从session的一级缓存中清除
-		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"8bb024d596a74855b1d47d40b2a86d1a");
-		//System.out.println(s2.getFullname());
+		UserInfo s2 =(UserInfo) session.get(UserInfo.class,"1");
+		System.out.println(s2.getFullname());
 	}
 	
 	/**
 	 * 继承
+	 * @MappedSuperclass
+       @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 	 * @throws IOException 
 	 */
 	
 	/**
 	 * 懒加载
 	 * @throws IOException 
+	 * @throws SQLException 
 	 */
 	
 	/*
@@ -181,21 +209,23 @@ public class HibernateTest {
 	 *    mysql 不支持SQL的clob类型，在Mysql中，用txt,mediumtext, longtext 类型标示长度超过255的文本长度。
 	 *    
 	 */
-	@Test
-	public void testWriteLob() throws IOException{
-		UserInfo user = new UserInfo("","","","","","","");
-		File f = new File("d:"+File.separator+"test.jpg");
+	//@Test
+	public void testWriteLob() throws IOException, SQLException{
+		UserInfo user = new UserInfo("3","3","3","3","3","3","3");
+		user.setBirthday(new Date());
+		File f = new File("d:"+File.separator+"s.bmp");
 		InputStream input = new FileInputStream(f);
 		Blob blob =  Hibernate.getLobCreator(session).createBlob(input,input.available());
+		blob.setBinaryStream(input.available());
 		user.setPictrue(blob);
 		session.save(user);
 	}
-	@Test
+	//@Test
 	public void testReadLob() throws SQLException, IOException{
 		UserInfo user = (UserInfo) session.get(UserInfo.class, "1");
 		Blob blob = user.getPictrue();
 		InputStream input = blob.getBinaryStream();
-		File f = new File("d:"+File.separator+"test1.jpg");
+		File f = new File("D:"+File.separator+"A.bmp");
 		OutputStream output = new FileOutputStream(f);
 		byte[] buff = new byte[input.available()];
 		input.read(buff);
@@ -209,8 +239,10 @@ public class HibernateTest {
 	 */
 	@Test
 	public void testAdressPro(){
-		UserInfo user = new UserInfo("","","","","","","");
+		UserInfo user = new UserInfo("5","4","4","4","4","4","4");
 		Address address = new Address();
+		address.setAddress("复兴门");
+		address.setPhone("11111");
 		user.setAddress(address);
 		session.save(user);
 	}

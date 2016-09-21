@@ -13,13 +13,16 @@ import net.sf.ehcache.Element;
 
 public class EhCacheTest {
 	private Cache cache;
-	private static EhcachSerializable es;
+	private static EhcachSerializable es; 
 	
 	@BeforeClass
 	public static void init(){
 		  es = new EhcachSerializable();
 	}
 	
+	/*
+	 *  diskPersistent="true" 持久化磁盘设置
+	 */
 	@Before
 	public void putCache(){
 		 CacheManager manager = CacheManager.create("src\\common\\classUtil\\EhCache\\ehcache.xml");
@@ -36,6 +39,9 @@ public class EhCacheTest {
 			cache.flush();
 	}
 	
+	/*
+	 *  添加缓存
+	 */
 	@Test
 	public void testEhCache0(){
 		   cache.remove("key");   
@@ -45,6 +51,9 @@ public class EhCacheTest {
 		  
 	}
 
+	/*
+	 * 获取缓存数据
+	 */
 	@Test
 	public void testEhCache1(){
 		   Element element = cache.get("key");   
@@ -54,12 +63,19 @@ public class EhCacheTest {
             } 
 	}
 	
+	/*
+	 * 添加缓存
+	 */
 	@Test
 	public void testEhCache2(){
 		   cache.remove(es);   
 		   Element elem = new Element(es,"EhCacheValueSerializable");   
 	       cache.put(elem); 
 	}
+	
+	/*
+	 * 获取缓存数据
+	 */
 	@Test
 	public void testEhCache3(){
 		   Element element = cache.get(es);   
@@ -71,7 +87,14 @@ public class EhCacheTest {
 	
 }
 
+/**
+ *  如果没有实现Serializable 会抛出 java.io.NotSerializableException: common.classUtil.EhCache.EhcachSerializable
+ * @author Administrator
+ *
+ */
 class EhcachSerializable implements Serializable{
+
+	private static final long serialVersionUID = 3290373935113969674L;
 	public String name;
 
 }

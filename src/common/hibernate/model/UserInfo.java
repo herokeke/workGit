@@ -1,5 +1,6 @@
 package common.hibernate.model;
 
+import java.io.Serializable;
 import java.sql.Blob;
 import java.util.Date;
 
@@ -8,7 +9,11 @@ import java.util.Date;
  * UserInfo entity. @author MyEclipse Persistence Tools
  */
 
-public class UserInfo {
+public class UserInfo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 322293115001601805L;
 	private String pid;
 	private String loginname;
 	private String fullname;
