@@ -44,6 +44,9 @@ public class CollectionTest {
      *               对顺序访问进行了优化，向List中间插入与删除的开销并不大。随机访问则相对较慢。(使用ArrayList代替。)还具有下列方 法：
      *               addFirst(), addLast(), getFirst(), getLast(), removeFirst() 和 removeLast(), 
      *               这些方法 (没有在任何接口或基类中定义过)使得LinkedList可以当作堆栈、队列和双向队列使用。
+     *               
+     * Vector：
+     * 
 	 */
 	
 	@Test
@@ -75,7 +78,7 @@ public class CollectionTest {
 	 *          
 	 * LinkedHashSet：具有HashSet的查询速度，且内部使用链表维护元素的顺序(插入的次序)。于是在使用迭代器遍历Set时，结果会按元素插入的次序显示。
 	 * 
-	 *  Vector：
+	 * 
 	 */
 	
 	@Test
