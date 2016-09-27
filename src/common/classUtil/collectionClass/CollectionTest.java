@@ -2,8 +2,10 @@ package common.classUtil.collectionClass;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class CollectionTest {
 	 // Vector
@@ -14,4 +16,6 @@ public class CollectionTest {
 	Map map =new  HashMap();
 	
 	List list = new ArrayList();
+	
+	Set set = new HashSet();
 }
