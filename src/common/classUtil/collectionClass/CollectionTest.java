@@ -94,6 +94,10 @@ public class CollectionTest {
 	 *      
 	 *      
 	 * HashMap就是使用对象的hashCode()进行快速查询的。此方法能够显着提高性能。 
+	 * 
+	 * 
+	 * 
+	 * 1. 装载因子？扩容。
 	 */
 	@Test
 	public void testMap(){
