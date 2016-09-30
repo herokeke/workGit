@@ -5,6 +5,13 @@ import java.lang.reflect.Field;
 public class TestArrays {
 	
     public static void main(String[] args) {
+    	String[] agr = new String[]{"aaaa","ddddd","11","11"};
+    	String parm="";
+    	for(String s: agr){
+    		System.out.println(s.equals(parm));
+    		System.out.println(s+"<>hash:"+s.hashCode());
+    		parm = s;
+    	}
     } 
 	
 
