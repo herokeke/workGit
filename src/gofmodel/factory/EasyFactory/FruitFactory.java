@@ -7,6 +7,7 @@ public class FruitFactory {
 	 *     newInstance: 弱类型。低效率。只能调用无参构造。
      *     new: 强类型。相对高效。能调用任何public构造。
 	 */
+	@SuppressWarnings("unchecked")
 	public static Fruit getFruit(String className) throws InstantiationException, IllegalAccessException, ClassNotFoundException{
 		Class fruit = Class.forName(className); //A加载类
 		return (Fruit) fruit.newInstance();   //实例化类
