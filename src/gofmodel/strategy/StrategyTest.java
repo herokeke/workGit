@@ -1,5 +1,7 @@
 ﻿package gofmodel.strategy;
 
+import org.junit.Test;
+
 /**
  * 策略模式
  *        定义一个接口  多个实现类 调用根据需求传入不通的class。
@@ -7,6 +9,17 @@
  * @author Administrator
  *
  */
-public class Strategy {
+public class StrategyTest {
+	
+	@Test
+	public void testStrategy(){
+		Context m = new Context(new MysqlClient());
+		m.connectDBase();
+		
+		Context o = new Context(new OracleClient());
+		o.connectDBase();
+		
+	}
+	
 
 }
