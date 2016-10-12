@@ -19,6 +19,7 @@ public abstract class CarDecorator implements Car {
 //	}
 	public abstract void  move();
 
+	
 	public Car getCar() {
 		return car;
 	}
