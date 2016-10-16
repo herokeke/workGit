@@ -1,4 +1,4 @@
-package gofmodel.Mediator;
+package gofmodel.Mediator.Examples1;
 
 /**
  * 中介者模式
