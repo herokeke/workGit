@@ -1,6 +1,6 @@
 package common.classUtil.testClass;
 
-public class Testss implements Runnable {
+public class testss implements Runnable {
 	
 	@Override
 	public void run() {
@@ -8,7 +8,7 @@ public class Testss implements Runnable {
 	}
 
 	public static void main(String[] args){
-		Runnable  test = new Testss();
+		Runnable  test = new testss();
 		Thread t1 = new Thread(test);
 		Thread t2 = new Thread(test);
 		//t.setName("dd");
