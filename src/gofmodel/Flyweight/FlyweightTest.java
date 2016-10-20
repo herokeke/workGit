@@ -8,6 +8,9 @@ import org.junit.Test;
  *          在JAVA语言中，String类型就是使用了享元模式。String对象是final类型，对象一旦创建就不可改变。在JAVA中字符串常量都是存在常量池中的，JAVA会确保一个字符串常量在常量池中只有一个拷贝。String a="abc"，其中"abc"就是一个字符串常量。
  * @author Administrator
  *
+ *     定义：运用共享技术有效的支持大量细粒度的对象。
+ *     说明：通过共享技术实现对象的重用，大量节约系统的内存，该模式关心系统的性能与资源利用情况。
+ *     频率：1
  */
 public class FlyweightTest {
 	
