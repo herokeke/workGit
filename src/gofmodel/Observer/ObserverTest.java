@@ -9,6 +9,9 @@ import org.junit.Test;
  *   java.util.Observer   观察者 需要实现的接口
  * @author Administrator
  *
+ *定义：对象间的一种一对多的依赖关系，以便当一个对象的状态发生改变时，所有依赖于他的对象都得到通知并自动刷新。
+ *说明：一个对象的行为将影响到一个或多个其他对象的行为。
+ *频率：5
  */
 public class ObserverTest {
 
