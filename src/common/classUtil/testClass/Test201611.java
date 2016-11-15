@@ -15,7 +15,7 @@ public class Test201611 {
 		for(Object obj : list){
 			System.out.println("A");
 		}
-System.out.println("bb");
+System.out.println("bbdd");
 	}
 
 }
