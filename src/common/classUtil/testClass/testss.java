@@ -11,6 +11,7 @@ public class Testss {
 	private static MyTest mt = new MyTest();
 
 	public static Testss gettestss(){
+		System.out.println("actionContext>"+(actionContext.get() instanceof Testss));
 		Testss  tt = (Testss) actionContext.get();
 		System.out.println("tt="+tt);
 		return tt;
@@ -28,9 +29,9 @@ public class Testss {
 		int i=0;
 		while(true){
 			//System.out.println(Testss.gettestss().toString());
-			System.out.println("000>>"+Thread.currentThread().getName());
+			//System.out.println("000>>"+Thread.currentThread().getName());
 			System.out.println("000>>"+Testss.gettestss());
-			Testss.gettestss().excute();
+		//	Testss.gettestss().excute();
 			//Testss.fun();
 			if(i==10){
 				return; 
