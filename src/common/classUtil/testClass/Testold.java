@@ -1,18 +1,18 @@
 package common.classUtil.testClass;
 
 
-public class Testss {
+public class Testold {
 	
 	private static ThreadLocal actionContext = new ThreadLocal();
 	
-	public Testss(){
+	public Testold(){
 		System.out.println("testss");
 	}
 	private static MyTest mt = new MyTest();
 
-	public static Testss gettestss(){
-		System.out.println("actionContext>"+(actionContext.get() instanceof Testss));
-		Testss  tt = (Testss) actionContext.get();
+	public static Testold gettestss(){
+		System.out.println("actionContext>"+(actionContext.get() instanceof Testold));
+		Testold  tt = (Testold) actionContext.get();
 		System.out.println("tt="+tt);
 		return tt;
 	}
@@ -25,12 +25,12 @@ public class Testss {
 	}
 	public static void main(String[] args){
 		//System.out.println(Testss.class.hashCode());
-		Object o = Testss.gettestss();
+		Object o = Testold.gettestss();
 		int i=0;
 		while(true){
 			//System.out.println(Testss.gettestss().toString());
 			//System.out.println("000>>"+Thread.currentThread().getName());
-			System.out.println("000>>"+Testss.gettestss());
+			System.out.println("000>>"+Testold.gettestss());
 		//	Testss.gettestss().excute();
 			//Testss.fun();
 			if(i==10){
