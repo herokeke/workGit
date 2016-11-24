@@ -53,7 +53,7 @@ public class MyEclipseKeyGen
   private MyEclipseKeyGen() {
     this.display = Display.getDefault();
     this.shell = new Shell(this.display, 192);
-    this.shell.setImage(new Image(Display.getCurrent(), "Images/myeclipse.gif"));
+    //this.shell.setImage(new Image(Display.getCurrent(), "Images/myeclipse.gif"));
     this.shell.setText("MyEclipseCrack");
     this.shell.setSize(256, 356);
     this.shell
