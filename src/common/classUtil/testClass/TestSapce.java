@@ -1,5 +1,6 @@
 package common.classUtil.testClass;
 
+
 public class TestSapce {
 
 	public static void main(String[] args){
@@ -24,8 +25,8 @@ public class TestSapce {
 		System.out.println(s==c); //true
 		System.out.println(s.a); // 5
 		System.out.println("=====");
-		
-		
+		System.out.println(TestSapce.class.getResource("/"));
+		System.out.println(TestSapce.class.getResource("/").getPath());
 		
 	}
 }
