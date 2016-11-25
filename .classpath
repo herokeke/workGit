@@ -54,7 +54,7 @@
 	<classpathentry kind="lib" path="lib/springJar/spring-context-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-core-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-expression-3.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/springJar/spring-jdbc-3.2.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/spring-jdbc-3.2.4.RELEASE.jar" sourcepath="D:/project/YM/spring-jdbc-3.2.4.RELEASE.src.zip"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-test-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-tx-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
