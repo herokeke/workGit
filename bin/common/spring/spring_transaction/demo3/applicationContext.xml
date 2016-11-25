@@ -24,12 +24,48 @@
 	</bean>
 	
 	<!-- 配置业务层类 -->
-	<bean id="accountDao" class="common.spring.spring_transaction.demo1.AccountDaoImpl">
+	<bean id="accountDao" class="common.spring.spring_transaction.demo3.AccountDaoImpl">
+	    <property name="dataSource" ref="dataSource"></property>
+	   
+	</bean>
+
+	<!-- 配置DAO的类 -->
+	<bean id="accountService" class="common.spring.spring_transaction.demo3.AccountServiceImpl">
+	   <property name="accountDao" ref="accountDao"></property>
+	</bean>
+	
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	    <property name="dataSource" ref="dataSource"></property>
 	</bean>
 	
-	<bean id="accountService" class="common.spring.spring_transaction.demo1.AccountServiceImpl">
-	   <property name="accountDao" ref="accountDao"></property>
+	<!-- 配置业务层的代理类 -->
+	<bean id="accountServiceProxy" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+	  <!-- 配置目标对象 -->
+	  <property name="target" ref="accountService"></property>
+	  <!-- 注入事务管理器 -->
+	  <property name="transactionManager" ref="transactionManager"></property>
+	  <!-- 注入事务属性 -->
+	  <property name="transactionAttributes" >
+	  <!-- props的格式 -->
+	   <props>
+	   <prop key="transfer">PROPAGATION_REQUIRED,+java.lang.ArithmeticException</prop>
+	     <!-- 
+	     props的格式:
+	          PROPAGATION 事务的传播行为
+	          ISOLATION   事务的隔离级别
+	          readOnly    只读（不可以进行修改操作）
+	          -Exception  发生那些异常回滚事务
+	          +Exception  发生那些异常不回滚
+         <prop key="insert*">PROPAGATION_REQUIRED</prop>
+         <prop key="update*">PROPAGATION_REQUIRED</prop>
+         <prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+          -->
+      </props>
+	  </property>
 	</bean>
+	
+	
+	
 	
 </beans>

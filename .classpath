@@ -53,9 +53,13 @@
 	<classpathentry kind="lib" path="lib/springJar/spring-context-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-core-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-expression-3.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/springJar/spring-jdbc-3.2.4.RELEASE.jar" sourcepath="D:/project/YM/spring-jdbc-3.2.4.RELEASE.src.zip"/>
+	<classpathentry kind="lib" path="lib/springJar/spring-jdbc-3.2.4.RELEASE.jar" sourcepath="D:/project/YM/spring开发JAR/spring-framework-3.2.4.RELEASE/libs/spring-jdbc-3.2.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-test-3.2.4.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/springJar/spring-tx-3.2.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/spring-tx-3.2.4.RELEASE.jar" sourcepath="D:/project/YM/spring开发JAR/spring-framework-3.2.4.RELEASE/libs/spring-tx-3.2.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/xfire-core-1.2.6.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/com.springsource.org.aopalliance-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/spring-aop-3.2.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/spring-aspects-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

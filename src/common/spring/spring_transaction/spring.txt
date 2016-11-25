@@ -51,13 +51,29 @@ spring 事物管理
        TransactionDefinition 事物定义信息（隔离，传播，超时，只读）
        TransactionStatus 事物具体运行状态。
        
-spring 支持两种方式事物管理
+spring 支持两种方式事务管理
 
-       1. 编程式的事物管理
+       1. 编程式事务管理
             在实际应用中很少使用。
-            通过TransacTemplate手动管理事物
+            通过TransacTemplate手动管理事务
             
        2. 使用xml配置声明式事务。
             开发中推荐使用（代码入侵性最小）
            Spring的声明式事务是通过AOP实现的。
-       
+           
+Demo1 不使用事务
+
+Demo2 编程式的事务管理
+
+Demo3  声明式的事务管理 
+              第一种方式： 使用原始的TransactionProxyFactoryBean （不经常使用，一个配置只能对一个目标增强，批量的配置会很多。）
+          需要注入代理对象。    
+Demo4  声明式的事务管理           
+              第二种方式：  spring为了简化AOP的开发 引入第三方的Aspectj。
+              
+              自动代理，基于impoxtAspec,在类的生产过程中就对该类进行了增强。
+              
+              
+              
+               
+               

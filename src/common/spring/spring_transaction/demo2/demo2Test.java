@@ -1,4 +1,4 @@
-package common.spring.spring_transaction.demo1;
+package common.spring.spring_transaction.demo2;
 
 import javax.annotation.Resource;
 
@@ -8,8 +8,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:common/spring/spring_transaction/demo1/applicationContext.xml")
-public class demo1Test {
+@ContextConfiguration("classpath:common/spring/spring_transaction/demo2/applicationContext.xml")
+public class demo2Test {
 
 	@Resource(name="accountService")
 	private AccountService accountService;

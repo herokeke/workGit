@@ -1,7 +1,9 @@
-package common.spring.spring_transaction.demo1;
+package common.spring.spring_transaction.demo4;
+
 
 public class AccountServiceImpl implements AccountService {
 
+	
 	//注入转账的Dao
 	private AccountDao accountDao;
 	
@@ -11,12 +13,16 @@ public class AccountServiceImpl implements AccountService {
 
 
 	@Override
-	public void transfer(String out, String in, Double money) {
+	public void transfer(final String out, final String in, final Double money) {
 		accountDao.outMoney(out, money);
-		//int i = 1 / 0; //发生异常后 数据的一致性受到破坏。
+		int i = 1 / 0;  
 		accountDao.inMoney(in, money);
-		
-
+				
+			
+	
 	}
+	
+	
+
 
 }
