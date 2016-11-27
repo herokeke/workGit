@@ -24,40 +24,25 @@
 	</bean>
 	
 	<!-- 配置业务层类 -->
-	<bean id="accountDao" class="common.spring.spring_transaction.demo4.AccountDaoImpl">
+	<bean id="accountDao" class="common.spring.spring_transaction.demo5.AccountDaoImpl">
 	    <property name="dataSource" ref="dataSource"></property>
 	   
 	</bean>
 
 	<!-- 配置DAO的类 -->
-	<bean id="accountService" class="common.spring.spring_transaction.demo4.AccountServiceImpl">
+	<bean id="accountService" class="common.spring.spring_transaction.demo5.AccountServiceImpl">
 	   <property name="accountDao" ref="accountDao"></property>
 	</bean>
 	
 	<!-- 配置事务管理器 -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 	    <property name="dataSource" ref="dataSource"></property>
+	   <property name="globalRollbackOnParticipationFailure" value="false" /> 
 	</bean>
 	
-	<!-- 配置事务的通知:(事务的增强) -->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-         <tx:attributes>
-               <!-- 
-               propagation ：事务传播行为
-               isolation  ： 事务隔离级别
-               read-only  ： 只读
-               rollback-for ： 发生那些异常回滚
-               no-rollback-for ： 发生哪些异常不回滚
-               timeout：过期信息
-                -->
-              <tx:method name="transfer"  propagation="REQUIRED" read-only="false" isolation="DEFAULT"/>
-         </tx:attributes>
-    </tx:advice>	
+	<!-- 开启注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+
 	
-	<!-- 配置切面  aop表达式 *方法的返回值 + 代表子类 .* 任意方法 (..) 任意参数-->
-	<aop:config>
-	 <aop:pointcut expression="execution(* common.spring.spring_transaction.demo4.AccountService+.*(..))" id="pointcut1"/>
-	 <!-- 在pointcut1切入点采用txAdvice增强-->
-	 <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut1"/>
-	</aop:config>
 </beans>

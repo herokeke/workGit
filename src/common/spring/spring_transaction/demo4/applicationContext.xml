@@ -43,14 +43,14 @@
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
          <tx:attributes>
                <!-- 
-               propagation
-               isolation
-               read-only
-               rollback-for
-               timeout
-               no-rollback-for
+               propagation ：事务传播行为
+               isolation  ： 事务隔离级别
+               read-only  ： 只读
+               rollback-for ： 发生那些异常回滚
+               no-rollback-for ： 发生哪些异常不回滚
+               timeout：过期信息
                 -->
-              <tx:method name="transfer" propagation="REQUIRED" no-rollback-for="" timeout="-1" rollback-for="" read-only="false" isolation="DEFAULT"/>
+              <tx:method name="transfer"  propagation="REQUIRED" read-only="false" isolation="DEFAULT"/>
          </tx:attributes>
     </tx:advice>	
 	

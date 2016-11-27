@@ -65,15 +65,27 @@ Demo1 不使用事务
 
 Demo2 编程式的事务管理
 
+
 Demo3  声明式的事务管理 
-              第一种方式： 使用原始的TransactionProxyFactoryBean （不经常使用，一个配置只能对一个目标增强，批量的配置会很多。）
-          需要注入代理对象。    
+               第一种方式： 使用原始的TransactionProxyFactoryBean （不经常使用，一个配置只能对一个目标增强，批量的配置会很多。）
+               需要注入代理对象。    
+                
 Demo4  声明式的事务管理           
               第二种方式：  spring为了简化AOP的开发 引入第三方的Aspectj。
-              
               自动代理，基于impoxtAspec,在类的生产过程中就对该类进行了增强。
               
+Demo4 使用注解配置声明式事务
+      
               
               
-               
-               
+
+补充： 
+    A事务，B事务 中，A中方法调用B中的方法，异常在B事务的方法中。
+    1. A事务不捕获异常，在B事务中捕获异常后，事务不会回滚。无异常信息。
+    2. A事务捕获异常，B事务中不捕获异常，事务回滚，并抛出异常信息：
+         Transaction rolled back because it has been marked as rollback-only 
+    3. 在spring配置中添加 <property name="globalRollbackOnParticipationFailure" value="false" /> 
+       A事务捕获异常，B事务中不捕获异常，事务不会回滚。无异常信息。
+    总结：如果无法在B事务中无法捕获异常，并且让事务不回滚，就要配置globalRollbackOnParticipationFailure
+             
+    
