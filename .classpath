@@ -49,7 +49,7 @@
 	<classpathentry kind="lib" path="lib/springJar/com.springsource.org.apache.commons.logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/com.springsource.org.apache.log4j-1.2.15.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/mysql-connector-java-5.1.17-bin.jar"/>
-	<classpathentry kind="lib" path="lib/springJar/spring-beans-3.2.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/springJar/spring-beans-3.2.4.RELEASE.jar" sourcepath="D:/project/YM/spring开发JAR/spring-framework-3.2.4.RELEASE/libs/spring-beans-3.2.4.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-context-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-core-3.2.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/springJar/spring-expression-3.2.4.RELEASE.jar"/>
