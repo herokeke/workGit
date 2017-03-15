@@ -15,12 +15,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:common/spring/spring_ioc/applicationContext6.xml")
 public class Demo6Test extends AbstractJUnit4SpringContextTests {
 
-    @Resource
+    @Resource(name="logonService")
     private LogonService logonService;
 
 	@Test
 	public void testDemo(){
-	//	logonService.excute();
+		//logonService.excute();
 	//	logonService.plugin();
 	}	
 }

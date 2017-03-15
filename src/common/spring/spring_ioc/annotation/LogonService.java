@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import common.spring.spring_ioc.annotation.ext.Plugin;
 
+@Scope("prototype")
 @Service
 public class LogonService {
 	
@@ -51,6 +53,7 @@ public class LogonService {
    public void excute(){
 	   userDao.addUser();
 	 //  logDao.addLog(); 
+	   System.out.println("#############");
 	   idao.addUser();
    }
    
