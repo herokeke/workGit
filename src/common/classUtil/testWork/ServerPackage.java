@@ -23,15 +23,15 @@ public class ServerPackage {
 	
 	static{
 		list = new ArrayList<ServerPackage>();//      beginTime -- endTime
-		list.add(new ServerPackage("1","",1));//         10     --    11
-		list.add(new ServerPackage("2","",2));//         10     --    12
-		list.add(new ServerPackage("3","1",3));//        11     --    14
-		list.add(new ServerPackage("4","2,",4));//       12     --    16
-		list.add(new ServerPackage("5","1,3",5));//      14     --    19
-		list.add(new ServerPackage("6","2,4,5,1",6));//  19     --    25
-		list.add(new ServerPackage("7","5,1",7));//      19     --    26
-		list.add(new ServerPackage("8","1,6,7",8));//    26     --    34
-		list.add(new ServerPackage("9","3,2,1",9));//    14     --    23
+		list.add(new ServerPackage("10","",1));//         10     --    11
+		list.add(new ServerPackage("20","",2));//         10     --    12
+		list.add(new ServerPackage("30","10",3));//        11     --    14
+		list.add(new ServerPackage("4","20,",4));//       12     --    16
+		list.add(new ServerPackage("5","10,30",5));//      14     --    19
+		list.add(new ServerPackage("6","20,4,5,10",6));//  19     --    25
+		list.add(new ServerPackage("7","5,10",7));//      19     --    26
+		list.add(new ServerPackage("8","10,6,7",8));//    26     --    34
+		list.add(new ServerPackage("9","30,20,10",9));//  14     --    23
 	}
 	public ServerPackage(){}
 	
@@ -67,9 +67,9 @@ public class ServerPackage {
 					int endTime = Integer.parseInt(mapList.get(str))+sp.num;
 					
 					if(mapList.get(sp.currentno)==null || endTime>Integer.parseInt(mapList.get(sp.currentno))){
-						sp.endTime = String.valueOf(endTime);
-						sp.beginTime= String.valueOf(beginTime);
-						mapList.put(sp.currentno,sp.endTime);
+					//	sp.endTime = String.valueOf(endTime);
+					//	sp.beginTime= String.valueOf(beginTime);
+						mapList.put(sp.currentno,String.valueOf(endTime));
 					}
 					ServerPackage server = mappool.get(sp.currentno);
 					if(server==null || beginTime>Integer.parseInt(server.beginTime)){
