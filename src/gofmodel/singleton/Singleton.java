@@ -1,7 +1,7 @@
-ï»¿package gofmodel.singleton;
+package gofmodel.singleton;
 
 /**
- * å•ä¾‹æ¨¡å¼ 
+ * µ¥ÀıÄ£Ê½ 
  * @author Administrator
  *
  */
@@ -18,12 +18,12 @@ public class Singleton {
 }
 
 /**
- * é¥¿æ±‰å¼åŠ è½½
+ * ¶öººÊ½¼ÓÔØ
  * @author Administrator
  *
  */
 class SingletonObjectLh{
-	private static SingletonObjectLh singletonObjectLh = new SingletonObjectLh("æ‡’æ±‰æ„é€ å¯¹è±¡");
+	private static SingletonObjectLh singletonObjectLh = new SingletonObjectLh("ÀÁºº¹¹Ôì¶ÔÏó");
 	private SingletonObjectLh(String str){
 		System.out.println(str);
 	}
@@ -32,12 +32,12 @@ class SingletonObjectLh{
 		return singletonObjectLh;
 	}
 	public void fun(){
-		System.out.println("æ‰§è¡Œæ–¹æ³•");
+		System.out.println("Ö´ĞĞ·½·¨");
 	}
 }
 
 /**
- * æ‡’æ±‰åŠ è½½
+ * ÀÁºº¼ÓÔØ
  * @author Administrator
  *
  */
@@ -54,13 +54,13 @@ class SingletonObjectEh{
 	public static SingletonObjectEh getSingletonObjectEh(){
 		if(singletonObjectEh == null ){
 			
-			singletonObjectEh = new SingletonObjectEh("é¥¿æ±‰æ„é€ å¯¹è±¡");
+			singletonObjectEh = new SingletonObjectEh("¶öºº¹¹Ôì¶ÔÏó");
 		}
 		return singletonObjectEh;
 	}
 	
 	public void fun(){
-		System.out.println("æ‰§è¡Œæ–¹æ³•");
+		System.out.println("Ö´ĞĞ·½·¨");
 	}
 }
 

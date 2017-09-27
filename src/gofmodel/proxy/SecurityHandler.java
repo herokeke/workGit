@@ -1,14 +1,14 @@
-ï»¿package gofmodel.proxy;
+package gofmodel.proxy;
 
 import java.lang.reflect.*;
 /**
- * å®šä¹‰ï¼šä¸ºå…¶ä»–å¯¹è±¡æä¾›ä¸€ä¸ªä»£ç†ä»¥æ§åˆ¶å¯¹è¿™ä¸ªå¯¹è±¡çš„è®¿é—®
- * è¯´æ˜ï¼šå½“ä¸èƒ½ç›´æ¥è®¿é—®ä¸€ä¸ªå¯¹è±¡æ—¶ï¼Œé€šè¿‡ä¸€ä¸ªä»£ç†å¯¹è±¡é—´æ¥è®¿é—®å®ƒã€‚
- * é¢‘ç‡ï¼š4
+ * ¶¨Òå£ºÎªÆäËû¶ÔÏóÌá¹©Ò»¸ö´úÀíÒÔ¿ØÖÆ¶ÔÕâ¸ö¶ÔÏóµÄ·ÃÎÊ
+ * ËµÃ÷£ºµ±²»ÄÜÖ±½Ó·ÃÎÊÒ»¸ö¶ÔÏóÊ±£¬Í¨¹ıÒ»¸ö´úÀí¶ÔÏó¼ä½Ó·ÃÎÊËü¡£
+ * ÆµÂÊ£º4
  * @author Administrator
  *
  */
-//åŠ¨æ€ä»£ç†
+//¶¯Ì¬´úÀí
 public class SecurityHandler implements InvocationHandler {
 
 	private Object targetObject;

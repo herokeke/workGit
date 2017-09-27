@@ -1,10 +1,10 @@
-ï»¿package gofmodel.factory.EasyFactory;
+package gofmodel.factory.EasyFactory;
 
 import org.junit.Test;
 
 /**
- * ç®€å•å·¥å‚
- *       ç±»ä¼¼å·¥å…·ç±»è®¾è®¡ï¼Œé€šè¿‡å·¥å‚æ–¹æ³•åˆ›å»ºå‡ºå¯¹è±¡ã€‚
+ * ¼òµ¥¹¤³§
+ *       ÀàËÆ¹¤¾ßÀàÉè¼Æ£¬Í¨¹ı¹¤³§·½·¨´´½¨³ö¶ÔÏó¡£
  * @author Administrator
  *
  */
