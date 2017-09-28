@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
-    <file url="file://$PROJECT_DIR$/src/common/classUtil/reflectionClass/TestReflection.java" charset="GBK" />
-    <file url="PROJECT" charset="GBK" />
+  <component name="Encoding" native2AsciiForPropertiesFiles="false" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/../spring_Demo/src/main/java/com/mywork/core/web/LoginController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/classUtil/innerClass/BeanClass.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/classUtil/innerClass/NeiBuClass.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/classUtil/innerClass/NeiBuInterface.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/classUtil/reflectionClass/TestReflection.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/common/classUtil/webService/Axis1ClientTest.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

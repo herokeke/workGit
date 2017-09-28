@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../spring_Demo/WebRoot/WEB-INF/WEB-INF.iml" filepath="$PROJECT_DIR$/../spring_Demo/WebRoot/WEB-INF/WEB-INF.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../spring_Demo/spring_Demo1.iml" filepath="$PROJECT_DIR$/../spring_Demo/spring_Demo1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring_Demo/spring_Demo.iml" filepath="$PROJECT_DIR$/../spring_Demo/spring_Demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/workGit1.iml" filepath="$PROJECT_DIR$/workGit1.iml" />
     </modules>
   </component>
