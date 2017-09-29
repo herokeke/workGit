@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+    
+    >
+	
+	<bean id="boss"  class="common.spring.spring_ioc.model.Boss" >
+	
+		 <property name="propList">
+		     <list>
+		        <value>你</value>
+		        <value>我</value>
+		        <value>她</value>
+		     </list>
+		 </property>
+		 
+		 <property name="propSet">
+		     <set>
+		        <value>中</value>
+		        <value>发</value>
+		        <value>门</value>
+		     </set>
+		 </property>
+		 
+		 
+		 <property name="propMap">
+		     <map>
+		     <!-- Map第一个元素 -->
+			     <entry>
+				       <key><value>1</value></key>
+			            <value>壹</value>
+			     </entry>
+			 <!-- Map第二个元素 -->
+			     <entry>
+				       <key><value>2</value></key>
+			           <value>贰</value>
+			     </entry>
+		     </map>
+		 </property>
+		 
+		 <property name="properties">
+		   <props>	
+		      <prop  key="url" >www.baidu.com</prop>
+		      <prop  key="port" >8080</prop>
+		   </props>
+		 </property>
+	</bean>
+	
+	
+	
+	
+	   <bean id="car" class="common.spring.spring_ioc.model.Car" />
+</beans>
