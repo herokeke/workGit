@@ -11,9 +11,12 @@ public class ProxyTest {
          // user.delUser();
          SecurityHandler securityHandler = new SecurityHandler();
          user =  (UserManagerService) securityHandler.createProxyInstance(new  UserManagerImpl());
-         user.addUser("123","小刚");
+         user.addUser("123","Yhan");
          user.delUser();
+
+         ProxyCglib pc = new ProxyCglib();
+         user = (UserManagerService) pc.getInstance(new UserManagerImpl());
+         user.addUser("456","cxy");
+
      }
-
-
 }

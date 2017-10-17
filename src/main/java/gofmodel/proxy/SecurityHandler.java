@@ -15,6 +15,12 @@ public class SecurityHandler implements InvocationHandler {
 	
 	public Object createProxyInstance(Object targetObject){
 		this.targetObject = targetObject;
+		/*
+		     newProxyInstance(ClassLoader loader, Class<?>[] interfaces, InvocationHandler h)
+		     ClassLoader loader：类加载器
+             Class<?>[] interfaces：得到全部的接口
+             InvocationHandler h：得到InvocationHandler接口的子类实例
+		 */
 		return Proxy.newProxyInstance(targetObject.getClass().getClassLoader(), targetObject.getClass().getInterfaces(), this);
 	}
 	
